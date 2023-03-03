@@ -11,16 +11,16 @@ import { TransformNamePipe } from '../common/pipes/name.pipes';
 export class StudentsController {
     constructor(private readonly studentsService: StudentsService) {}
   
-    @Get('who-are-you')
-    whoAreYou(@Query('name', TransformNamePipe) name: string) {
-        return this.studentsService.ImStudent(name);
-    }
+    // @Get('who-are-you')
+    // whoAreYou(@Query('name', TransformNamePipe) name: string) {
+    //     return this.studentsService.ImStudent(name);
+    // }
 
-    @NoUser()
-    @Post('who-are-you')
-    whoAreYouPost(@Body() student: StudentDto) {
-        return this.studentsService.ImStudent(student.name);
-    }
+    // @NoUser()
+    // @Post('who-are-you')
+    // whoAreYouPost(@Body() student: StudentDto) {
+    //     return this.studentsService.ImStudent(student.name);
+    // }
 
     @Post('who-is-request')
     whoIsReq(@User() user: string) {
