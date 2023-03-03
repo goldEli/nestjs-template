@@ -16,34 +16,34 @@ export class StudentsController {
     //     return this.studentsService.ImStudent(name);
     // }
 
-    // @NoUser()
-    // @Post('who-are-you')
-    // whoAreYouPost(@Body() student: StudentDto) {
-    //     return this.studentsService.ImStudent(student.name);
-    // }
+    @NoUser()
+    @Post('whoAreYou')
+    whoAreYouPost(@Body() student: StudentDto) {
+        return this.studentsService.showStudent(student.name);
+    }
 
-    @Post('who-is-request')
+    @Post('whoIsRequest')
     whoIsReq(@User() user: string) {
         return user;
     }
 
-    @Get('get-name-by-id')
+    @Get('getNameById')
     getNameById(@Query('id', ParseIntPipe) id: number) {
         return this.studentsService.getStudentName(id);
     }
 
     @SensitiveOperation(SensitiveType.Set)
-    @Post('set-student-name')
+    @Post('setStudentName')
     setStudentName(@User() user: string) {
         return this.studentsService.setStudent(user);
     }
 
-    @Get('get-class')
+    @Get('getClass')
     getClass(@Query('id', ParseIntPipe) id: number) {
         return this.studentsService.findClass(id);
     }
 
-    @Post('set-class')
+    @Post('setClass')
     setClass(@Body() classes: ClassesDto) {
         return this.studentsService.setClass(classes.className, classes.students);
     }

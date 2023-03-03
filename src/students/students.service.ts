@@ -15,10 +15,10 @@ export class StudentsService {
         private readonly classRepository: Repository<Classes>,
     ) {}
 
-    // ImStudent(name?: string) {
-    //     this.logger.log(`student name is ${name}`);
-    //     return 'Im student ' + name;
-    // }
+    showStudent(name?: string) {
+        this.logger.log(`student name is ${name}`);
+        return 'Im student ' + name;
+    }
 
     async getStudentName(id: number) {
         this.logger.log(`get student id is ${id}`);
